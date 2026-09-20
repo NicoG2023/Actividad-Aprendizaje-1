@@ -1,40 +1,91 @@
-\documentclass[12pt,a4paper]{article}
+% ESTRUCTURA DEL PROYECTO
+%   main.tex                 Preámbulo (paquetes, portada, metadatos) y ensamblado
+%   referencias.bib          Fuentes en formato BibTeX (biblatex-apa)
+%   imagenes/                Logo institucional y demás figuras (Logo_UD.png)
+%   secciones/               Contenido, un archivo por sección:
+%     introduccion.tex
+%     seleccion-caso.tex
+%     riesgos.tex
+%     impacto-riesgos.tex
+%     conclusiones.tex
+%     casos/                 Casos de negocio de los integrantes:
+%       caso-01.tex
+%       caso-02.tex
+%       caso-03.tex
+%
+% -----------------------------------------------------------------------
+\documentclass[stu, 12pt, letterpaper, donotrepeattitle, floatsintext]{apa7}
 
-\input{preambulo}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage{newtxtext,newtxmath}
+\usepackage{graphicx}
+\graphicspath{{imagenes/}}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage[style=apa, backend=biber]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias.bib}
+\hypersetup{hidelinks}
+
+% Ajuste menor: "s. f." con espacio (biblatex-apa lo deja como "s.f.").
+\DefineBibliographyStrings{spanish}{%
+	nodate = {s.~f\adddot},
+}
+
+\AtBeginDocument{%
+	\renewcommand{\keywordname}{Palabras clave}%
+	\renewcommand{\notelabel}{Nota}%
+	\renewcommand{\tablename}{Tabla}% babel-spanish lo deja como "Cuadro"
+}
+
+\shorttitle{Fase 1 del Proyecto Final}
+\title{%
+	\includegraphics[width=1.9in]{Logo_UD.png}\\[0.6cm]
+	Actividad de Aprendizaje No.~1: Fase 1 del Proyecto Final%
+}
+% TODO: completar los nombres y códigos de los integrantes restantes.
+\authorsnames{Nicolás Guevara Herrán (20211180026), Nombre Integrante 2 (Código 2), Nombre Integrante 3 (Código 3)}
+\authorsaffiliations{{Maestría en Gestión y Seguridad de la Información, Facultad de Tecnología\\Universidad Distrital Francisco José de Caldas}}
+\course{Arquitectura de Seguridad}
+\professor{Camilo Enrique Rocha Calderon}
+\duedate{[Fecha de entrega]\\Bogotá, D.C.} % TODO: completar la fecha de entrega
 
 \begin{document}
-	
-	% Portada
-	\input{secciones/portada}
-	
-	% Índice
-	\tableofcontents
-	\newpage
-	
-	% 1. Introducción
-	\input{secciones/introduccion}
-	
-	% 2. Casos de negocio
-	\section{Presentación de los casos de negocio}
-	
-	\input{secciones/casos/caso-01}
-	\input{secciones/casos/caso-02}
-	\input{secciones/casos/caso-03}
-	
-	% 3. Selección del caso
-	\input{secciones/seleccion-caso}
-	
-	% 4. Riesgos
-	\input{secciones/riesgos}
-	
-	% 5. Impacto de los riesgos
-	\input{secciones/impacto-riesgos}
-	
-	% 6. Conclusiones
-	\input{secciones/conclusiones}
-	
-	% 7. Bibliografía
-	\newpage
-	\printbibliography[title={Bibliografía}]
-	
+\maketitle
+% Índice
+\tableofcontents
+\newpage
+
+% 1. Introducción
+\input{secciones/introduccion}
+
+% 2. Casos de negocio
+\section{Presentación de los casos de negocio}
+
+\input{secciones/casos/caso-01}
+\input{secciones/casos/caso-02}
+\input{secciones/casos/caso-03}
+
+% 3. Selección del caso
+\input{secciones/seleccion-caso}
+
+% 4. Riesgos
+\input{secciones/riesgos}
+
+% 5. Impacto de los riesgos
+\input{secciones/impacto-riesgos}
+
+% 6. Conclusiones
+\input{secciones/conclusiones}
+% La lista de referencias se genera automáticamente con las entradas
+% que se citen en el texto (\parencite / \textcite) desde referencias.bib.
+% Si aún no hay citas, esta sección no imprime nada (aviso "Empty bibliography").
+\printbibliography
+
 \end{document}
