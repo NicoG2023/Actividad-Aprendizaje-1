@@ -1,0 +1,47 @@
+\subsection{Modelado de Proceso Empresa Transmilenio}
+
+\subsubsection*{1. Gestión y despacho de flota desde el CCI (Centro de Control Integrado)}
+
+El CCI entró en funcionamiento en marzo de 2026 y es descrito como el más avanzado de América Latina en gestión de transporte público urbano, desde donde se coordina en tiempo real la operación de los componentes Troncal, TransMiZonal y TransMiCable, así como la seguridad del sistema. La gerente de TransMilenio explicó que es la primera vez en 25 años que se gestiona y controla la totalidad del sistema en un mismo sitio, controlando 10.500 buses.
+
+\textbf{Cómo modelarlo como proceso:}
+\begin{enumerate}
+    \item Recolección de datos en tiempo real (GPS/AVL de cada bus, sensores de ocupación).
+    \item Análisis de la operación (comparación de tiempos reales vs. programados, detección de congestión o "bunching" de buses).
+    \item Toma de decisión operativa (¿reprogramar despacho? ¿desviar ruta? ¿reforzar frecuencia?).
+    \item Ejecución de la orden (comunicación al conductor o al sistema de despacho automático).
+    \item Retroalimentación al usuario (información en pantallas de estación o app).
+\end{enumerate}
+
+\textbf{Sistemas de información involucrados:} ITS a bordo (GPS, cámaras, sensores), sistema de despacho, plataforma de video analítica con IA, sistema de información al usuario.
+
+\textbf{Ángulo de arquitectura de seguridad:}
+\begin{itemize}
+    \item Integridad: evitar manipulación o suplantación de señales GPS que alteren decisiones de despacho.
+    \item Disponibilidad: el CCI es un punto único de coordinación ¿qué pasa si falla? Se presta para proponer redundancia o un plan de contingencia.
+    \item Control de acceso: con una infraestructura diseñada para albergar hasta 200 personas, entre operadores, técnicos y uniformados, hay múltiples roles que necesitan permisos distintos (quién puede reprogramar despachos vs. quién solo monitorea).
+    \item Trazabilidad: registrar quién tomó cada decisión operativa, para auditoría.
+\end{itemize}
+
+\subsubsection*{2. Gestión de incidentes y emergencias}
+
+El CCI usa video análisis con inteligencia artificial y sistemas ITS a bordo para detectar comportamientos anómalos, activar protocolos de atención, coordinar equipos de apoyo en vía y reducir tiempos de respuesta ante incidentes. La escala es enorme: acceso a la visual de cerca de 2.700 cámaras fijas en toda la ciudad y más de 36.900 cámaras a bordo de los buses, con integración directa con las secretarías de Seguridad y Movilidad. Además, ya hay resultados medibles: 959 personas capturadas por delitos en el sistema durante 2026, de las cuales 878 fueron en flagrancia y 81 por orden judicial.
+
+\textbf{Cómo modelarlo como proceso:}
+\begin{enumerate}
+    \item Detección del evento (cámara + IA identifica comportamiento anómalo, o botón de pánico activado).
+    \item Verificación/clasificación (operador humano confirma si es real y su gravedad).
+    \item Activación de protocolo (según tipo: salud, seguridad, orden público, evasión de pago).
+    \item Coordinación interinstitucional (enlace con Policía, vigilancia privada, organismos de emergencia).
+    \item Cierre y registro del caso (para estadísticas y mejora continua).
+\end{enumerate}
+
+\textbf{Sistemas de información involucrados:} CCTV + video analítica con IA, sistema de alertas/botones de pánico, plataforma de coordinación interinstitucional, sistema de registro de casos.
+
+\textbf{Ángulo de arquitectura de seguridad (muy rico este proceso, porque mezcla seguridad física + seguridad de la información):}
+\begin{itemize}
+    \item Confidencialidad: las imágenes de miles de cámaras contienen datos personales sensibles — necesitas política de acceso y retención.
+    \item Integridad: la evidencia usada en capturas judiciales debe tener cadena de custodia digital verificable (nadie debe poder alterar el video).
+    \item Disponibilidad: los sistemas de video analítica no pueden fallar en el momento crítico.
+    \item Interoperabilidad segura: el enlace con Policía y organismos externos es un punto donde hay que definir bien los protocolos de intercambio de datos (¿API segura? ¿VPN? ¿qué información se comparte y cuál no?).
+\end{itemize}

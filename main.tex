@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{preambulo}
+
+\begin{document}
+	
+	% Portada
+	\input{secciones/portada}
+	
+	% Índice
+	\tableofcontents
+	\newpage
+	
+	% 1. Introducción
+	\input{secciones/introduccion}
+	
+	% 2. Casos de negocio
+	\section{Presentación de los casos de negocio}
+	
+	\input{secciones/casos/caso-01}
+	\input{secciones/casos/caso-02}
+	\input{secciones/casos/caso-03}
+	
+	% 3. Selección del caso
+	\input{secciones/seleccion-caso}
+	
+	% 4. Riesgos
+	\input{secciones/riesgos}
+	
+	% 5. Impacto de los riesgos
+	\input{secciones/impacto-riesgos}
+	
+	% 6. Conclusiones
+	\input{secciones/conclusiones}
+	
+	% 7. Bibliografía
+	\newpage
+	\printbibliography[title={Bibliografía}]
+	
+\end{document}

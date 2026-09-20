@@ -1,0 +1,80 @@
+\subsection{Ecopetrol - Gestión de implementación de soluciones solares fotovoltaicas para comunidades}
+
+Ecopetrol desarrolla iniciativas de desarrollo territorial orientadas al mejoramiento de las condiciones de vida de comunidades, dentro de las cuales se encuentran proyectos relacionados con el acceso a servicios públicos y energía. En la investigación previa se identificaron proyectos reales de soluciones solares fotovoltaicas en municipios de Putumayo, La Guajira y Santander, articulados con el Programa para el Mejoramiento de las Condiciones Esenciales de Vida, particularmente en la línea de Servicios Públicos – Energía y Gas.
+
+Se propone modelar el proceso de gestión de implementación de soluciones solares fotovoltaicas para comunidades, comprendiendo las actividades necesarias desde la identificación de una necesidad energética hasta la instalación, verificación, entrega y seguimiento inicial de la solución.
+
+\subsubsection*{Cómo se modelaría como proceso}
+
+\begin{enumerate}
+    \item Identificación de la necesidad energética: se detecta una comunidad o territorio con dificultades de acceso a energía.
+    \item Caracterización de la comunidad y el territorio: se recopila información sobre beneficiarios, ubicación, condiciones de acceso a energía y características relevantes del entorno.
+    \item Evaluación de viabilidad: el equipo técnico analiza si una solución fotovoltaica resulta apropiada para atender la necesidad identificada.
+    \item Formulación de la iniciativa: se define el alcance, beneficiarios, solución técnica, recursos, cronograma y requerimientos principales.
+    \item Evaluación y aprobación: la iniciativa es revisada y se determina si puede continuar hacia su ejecución.
+    \item Gestión de contratación o adquisición: se gestionan los proveedores, bienes y servicios necesarios para implementar la solución.
+    \item Instalación de la solución fotovoltaica: el contratista ejecuta la instalación de los componentes requeridos.
+    \item Pruebas y verificación: se valida que la instalación cumpla con las especificaciones y condiciones establecidas. En caso de incumplimiento, se realizan ajustes y nuevas pruebas.
+    \item Puesta en funcionamiento y entrega: una vez aprobada técnicamente, la solución se habilita y se formaliza su entrega a los beneficiarios.
+    \item Seguimiento inicial: se verifica el funcionamiento de la solución y el cumplimiento del resultado esperado.
+\end{enumerate}
+
+Aunque se puede simplificar a:
+
+Identificar necesidad – Caracterizar comunidad – Evaluar viabilidad - ¿Es viable? - Formular iniciativa - ¿Es aprobada? - Gestionar contratación - Instalar solución - Verificar funcionamiento - ¿Cumple requisitos? - Poner en funcionamiento – Entregar – Realizar seguimiento.
+
+\subsubsection*{Actores principales}
+
+\begin{itemize}
+    \item Comunidad / beneficiarios: proporcionan información y reciben la solución.
+    \item Ecopetrol – Gestión Territorial: coordina la identificación de necesidades, caracterización, formulación, entrega y seguimiento.
+    \item Ecopetrol – Equipo Técnico: evalúa la viabilidad y verifica técnicamente la solución.
+    \item Ecopetrol – Aprobación / Contratación: participa en la aprobación de la iniciativa y la gestión de proveedores y contratos.
+    \item Proveedor o contratista: suministra, instala y corrige la solución cuando sea necesario.
+\end{itemize}
+
+\subsubsection*{Posibles sistemas de información}
+
+\begin{itemize}
+    \item Sistema de Gestión Territorial / Información Geográfica: soporte para la caracterización territorial y localización de beneficiarios.
+    \item Sistema de Gestión de Proyectos: formulación, seguimiento, documentación y control de la iniciativa.
+    \item SAP Ariba: soporte de procesos relacionados con proveedores, abastecimiento y contratación.
+    \item Sistema de Seguimiento Contractual: seguimiento de la ejecución de servicios y obligaciones del contratista.
+    \item Sistema de Gestión Documental: almacenamiento de estudios, diseños, actas, evidencias, informes y documentación técnica.
+    \item Plataforma de Monitoreo Técnico: podría utilizarse para hacer seguimiento a la solución instalada cuando exista monitoreo remoto.
+\end{itemize}
+
+Algunos de estos componentes se presentan como capacidades funcionales propuestas para el modelo, ya que la información disponible no permite afirmar el producto tecnológico específico utilizado por Ecopetrol en todas las etapas.
+
+\subsubsection*{Sobre el proceso}
+
+El proceso utiliza y genera información como:
+
+\begin{itemize}
+    \item datos de comunidades y beneficiarios;
+    \item información geográfica y territorial;
+    \item necesidades de consumo energético;
+    \item estudios y especificaciones técnicas;
+    \item información de proyectos;
+    \item presupuestos y cronogramas;
+    \item proveedores y contratos;
+    \item documentos y evidencias de instalación;
+    \item resultados de pruebas;
+    \item actas de entrega;
+    \item reportes de funcionamiento y seguimiento.
+\end{itemize}
+
+\subsubsection*{En cuanto a Arquitectura de Seguridad}
+
+El proceso permite analizar varios aspectos relevantes de seguridad:
+
+\begin{itemize}
+    \item Confidencialidad: proteger los datos de comunidades, beneficiarios, proveedores y documentación sensible mediante controles de acceso y cifrado.
+    \item Integridad: evitar modificaciones no autorizadas sobre diseños, presupuestos, contratos, aprobaciones y resultados de pruebas.
+    \item Disponibilidad: garantizar el acceso a los sistemas y documentos necesarios durante la ejecución y seguimiento del proyecto.
+    \item Control de acceso: establecer permisos según el rol de Gestión Territorial, Equipo Técnico, Contratación, aprobadores y contratistas.
+    \item Segregación de funciones: evitar que una misma persona pueda formular, aprobar, contratar y validar completamente una iniciativa.
+    \item Trazabilidad: registrar quién crea, modifica, consulta o aprueba información durante el proceso.
+    \item Seguridad de terceros: limitar y controlar el acceso de proveedores y contratistas a los sistemas e información de Ecopetrol.
+    \item Seguridad de dispositivos: si las soluciones cuentan con sensores o monitoreo remoto, considerar autenticación de dispositivos, comunicaciones cifradas y protección frente a manipulación.
+\end{itemize}
