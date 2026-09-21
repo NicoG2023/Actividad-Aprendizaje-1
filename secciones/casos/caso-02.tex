@@ -1,27 +1,40 @@
-\noindent\texttt{https://www.colombiacompra.gov.co/Transparencia/mapa-de-procesos}
+\subsection{Caso 2: Agencia Nacional de Contratación Pública – Colombia Compra Eficiente (ANCP-CCE) --- Jhojan Aragón}
 
-\subsection{Agencia nacional de Contratación Pública Colombia Compra Eficiente}
+\subsubsection{a. Descripción del sector industrial de la organización seleccionada}
+La Agencia Nacional de Contratación Pública – Colombia Compra Eficiente (ANCP-CCE) hace parte del sector público colombiano y es la entidad encargada de orientar y liderar todo lo relacionado con la contratación pública en el país. En este sentido, no pertenece a una industria comercial o manufacturera tradicional, sino que se relaciona principalmente con la administración pública, la contratación estatal, el gobierno digital y el manejo de información pública.
 
-\subsubsection*{Colombia Compra Eficiente}
+La misión de la ANCP-CCE está enfocada en crear y promover políticas, herramientas y estrategias que permitan mejorar los procesos de compra y contratación del Estado. Con esto, busca que los recursos públicos se utilicen de una manera más eficiente y transparente, y que los procesos de contratación sean cada vez más organizados y efectivos \parencite{ancp2023plan}.
 
-Colombia Compra Eficiente es la Agencia Nacional de Contratación Pública de Colombia. Su función principal es promover y facilitar una contratación pública eficiente, transparente y orientada al buen uso de los recursos del Estado. Para ello, cuenta con diferentes procesos organizacionales que permiten gestionar sus actividades internas y su relación con ciudadanos, entidades públicas y proveedores.
+\subsubsection{b. Objetivos estratégicos de la organización}
+Para cumplir con esta misión, la ANCP-CCE establece los siguientes objetivos estratégicos \parencite{ancpObjetivos}:
 
-\subsubsection*{1. Gestión de Relacionamiento Estado-Ciudadano}
+\begin{enumerate}
+    \item \textbf{Consolidación y democratización del Sistema de Compra Pública.} Establecer lineamientos técnicos, conceptuales y metodológicos para consolidar y democratizar el Sistema de Compra Pública mediante herramientas e instrumentos normativos sostenibles, estratégicos e innovadores.
+    \item \textbf{Promoción de la compra pública estratégica.} Promover la compra pública estratégica como factor de desarrollo económico, incluyendo la dinamización de diferentes sectores económicos, regiones y economía popular mediante mecanismos de agregación de demanda.
+    \item \textbf{Gobernanza del conocimiento y la información.} Consolidar un marco de gobernanza para la gestión del conocimiento y la información, fortaleciendo la innovación y el desarrollo tecnológico para impulsar la transparencia y la participación en el sistema electrónico de contratación pública.
+    \item \textbf{Participación e inclusión de actores.} Fomentar la participación e inclusión de los actores del Sistema de Compra Pública mediante mecanismos de apropiación y difusión del conocimiento, fortalecimiento de capacidades y mejor relacionamiento con ciudadanía y grupos de valor.
+    \item \textbf{Optimización del modelo de operación.} Optimizar el modelo de operación de la Agencia para generar sinergias internas y con otras instituciones que faciliten la toma de decisiones y el logro de resultados.
+\end{enumerate}
 
-Este proceso se encarga de gestionar la relación entre Colombia Compra Eficiente y los ciudadanos o grupos de interés. Incluye actividades como la atención de solicitudes, peticiones, quejas, reclamos y sugerencias (PQRSD), participación ciudadana, rendición de cuentas y suministro de información.
+\subsubsection{c. Regulaciones de seguridad que le aplican según el tipo de información que procesa}
+Teniendo en cuenta el tipo de información que maneja la entidad, existen diferentes normas que regulan su tratamiento, protección y divulgación. Entre las principales se encuentran:
 
-De manera simplificada, el proceso puede modelarse así:
+\begin{itemize}
+    \item \textbf{Transparencia y acceso a la información pública -- Ley 1712 de 2014, Decreto 1081 de 2015 y Resolución 1519 de 2020:} Estas normas establecen las obligaciones relacionadas con la transparencia y el acceso a la información pública. En el caso de la contratación estatal, el Decreto 1082 de 2015 establece que las entidades deben publicar en el SECOP los documentos y actos administrativos relacionados con los procesos de contratación \parencite{decreto1082de2015}. Por su parte, la Resolución 1519 de 2020 establece diferentes estándares sobre transparencia, divulgación, seguridad digital y datos abiertos \parencite{res1519de2020}. Por lo tanto, es importante diferenciar qué información debe ser pública y cuál puede estar sujeta a reserva o clasificación.
 
-Ciudadano $\rightarrow$ Presentación de solicitud $\rightarrow$ Recepción y radicación $\rightarrow$ Clasificación $\rightarrow$ Asignación $\rightarrow$ Análisis $\rightarrow$ Elaboración de respuesta $\rightarrow$ Revisión $\rightarrow$ Respuesta al ciudadano $\rightarrow$ Cierre.
+    \item \textbf{Protección de datos personales -- Ley 1581 de 2012 y Decreto 1377 de 2013:} Estas normas regulan el tratamiento de los datos personales que se encuentran en las bases de datos y sistemas de información de las entidades. La Ley 1581 establece principios como la finalidad, el acceso y circulación restringida, la seguridad y la confidencialidad. Aunque la autorización previa e informada es una regla general para el tratamiento de datos personales, la misma ley establece algunas excepciones. Por ejemplo, cuando la información es solicitada por una entidad pública en ejercicio de sus funciones legales o cuando se trata de datos de naturaleza pública. Por esta razón, no se puede afirmar que todos los datos de proponentes, contratistas o servidores públicos requieren necesariamente una autorización expresa \parencite{ley1581de2012, decreto1377de2013}.
 
-Desde una perspectiva de arquitectura de seguridad, se deben proteger principalmente los datos personales y documentos proporcionados por los ciudadanos. Se pueden aplicar mecanismos de autenticación, autorización basada en roles, control de acceso, cifrado, registro de actividades y auditoría. También son importantes la confidencialidad, integridad y disponibilidad de la información.
+    \item \textbf{Contratación estatal -- Ley 80 de 1993, Ley 1150 de 2007 y Decreto 1082 de 2015:} Estas normas hacen parte del marco jurídico que regula la contratación pública y establecen aspectos relacionados con los procesos de contratación, el SECOP y las obligaciones de publicidad. En particular, el Decreto 1082 de 2015 establece que las entidades estatales deben publicar en el SECOP los documentos y actos administrativos de los procesos de contratación. Por esto, la disponibilidad, integridad y correcta gestión de la información contractual son aspectos importantes que se deben tener en cuenta dentro de la arquitectura de seguridad \parencite{decreto1082de2015}.
 
-\subsubsection*{2. Gestión de Contratación}
+    \item \textbf{Seguridad digital y privacidad de la información -- Resolución 500 de 2021 de MinTIC, modificada y actualizada posteriormente:} Esta resolución establece lineamientos generales para la implementación del Modelo de Seguridad y Privacidad de la Información (MSPI), así como para la gestión de riesgos de seguridad de la información y de incidentes de seguridad digital. La norma plantea la necesidad de implementar medidas técnicas, administrativas y relacionadas con el talento humano para proteger la información y gestionar los riesgos de seguridad digital. También incluye controles relacionados con la confidencialidad, integridad, disponibilidad y privacidad de la información \parencite{res500de2021}.
 
-Este proceso está relacionado con la gestión de los contratos que requiere la entidad, desde la identificación de una necesidad hasta la ejecución y cierre del contrato. Puede involucrar actividades de planeación, elaboración de documentos, selección, evaluación, contratación y supervisión.
 
-Un modelo simplificado podría ser:
+\end{itemize}
 
-Identificación de necesidad $\rightarrow$ Planeación $\rightarrow$ Estudios y documentos $\rightarrow$ Definición de modalidad $\rightarrow$ Publicación/solicitud $\rightarrow$ Recepción de ofertas $\rightarrow$ Evaluación $\rightarrow$ Selección $\rightarrow$ Elaboración del contrato $\rightarrow$ Ejecución $\rightarrow$ Supervisión $\rightarrow$ Liquidación.
 
-Desde la arquitectura de seguridad, este proceso tiene especial importancia debido a la necesidad de garantizar transparencia y trazabilidad. Se pueden implementar segregación de funciones, control de acceso por roles, autenticación, registros de auditoría, protección de documentos, controles de integridad y mecanismos que permitan identificar quién realizó cada acción. Por ejemplo, una misma persona no debería tener control absoluto sobre la preparación, evaluación, aprobación y supervisión de un contrato.
+\subsubsection{d. Descripción corta del problema que se busca resolver y donde se requiere la participación de un arquitecto de seguridad}
+La ANCP-CCE maneja un ecosistema digital conectado con diferentes plataformas del Estado, como SECOP I, SECOP II, TVEC, SIIF Nación y PIIP, donde se procesa información relacionada con la contratación pública.
+
+En este contexto, uno de los principales retos es garantizar la seguridad e integridad de la información, especialmente de los documentos contractuales y de las ofertas económicas, las cuales deben mantenerse confidenciales hasta el momento establecido para su apertura. Por lo tanto, cualquier alteración, interceptación o acceso no autorizado podría afectar la transparencia y la confianza en los procesos de contratación.
+
+Frente a este escenario, el Arquitecto de Seguridad tiene un papel importante al implementar la seguridad desde el diseño, definir controles como MFA, cifrado, firewalls y comunicaciones seguras, y establecer mecanismos que permitan proteger la información y mantener la trazabilidad de los procesos.
