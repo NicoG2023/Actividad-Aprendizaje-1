@@ -1,8 +1,32 @@
 \subsection{Ecopetrol - Gestión de implementación de soluciones solares fotovoltaicas para comunidades}
 
-Ecopetrol desarrolla iniciativas de desarrollo territorial orientadas al mejoramiento de las condiciones de vida de comunidades, dentro de las cuales se encuentran proyectos relacionados con el acceso a servicios públicos y energía. En la investigación previa se identificaron proyectos reales de soluciones solares fotovoltaicas en municipios de Putumayo, La Guajira y Santander, articulados con el Programa para el Mejoramiento de las Condiciones Esenciales de Vida, particularmente en la línea de Servicios Públicos – Energía y Gas.
+Ecopetrol desarrolla iniciativas de desarrollo territorial que se orientan al mejoramiento de las condiciones de vida de las comunidades, dentro de las cuales se encuentran proyectos relacionados con el acceso a servicios públicos y energía. En la investigación previa se identificaron proyectos reales de soluciones solares fotovoltaicas en municipios de Putumayo, La Guajira y Santander, articulados con el Programa para el Mejoramiento de las Condiciones Esenciales de Vida, en la línea de Servicios Públicos – Energía y Gas.
 
-Se propone modelar el proceso de gestión de implementación de soluciones solares fotovoltaicas para comunidades, comprendiendo las actividades necesarias desde la identificación de una necesidad energética hasta la instalación, verificación, entrega y seguimiento inicial de la solución.
+Como propuesta se encuentra modelar el proceso de gestión de implementación de soluciones solares fotovoltaicas para comunidades, abarcando actividades necesarias desde la identificación de una necesidad energética hasta la instalación, verificación, entrega y seguimiento inicial de la solución.
+
+\subsubsection*{Sector industrial de la organización}
+
+Ecopetrol pertenece al sector energético y opera como un grupo integrado de energía. Su Estrategia 2040 contempla hidrocarburos, energía para la transición y negocios de transmisión e infraestructura \parencite{ecopetrolEstrategia2040}.
+
+En su gestión territorial, este desarrolla proyectos relacionados con el acceso a servicios públicos y energía. Esta línea incluye soluciones con fuentes renovables dirigidas a comunidades con brechas de acceso al servicio \parencite{ecopetrolEntorno}.
+
+\subsubsection*{Objetivos estratégicos relacionados}
+
+El caso elegido se relaciona con la transición energética y el acceso de las comunidades a fuentes de energía. Ecopetrol busca reducir brechas de acceso a servicios públicos y promover soluciones basadas en fuentes renovables \parencite{ecopetrolEntorno}. También se relaciona con la generación de valor sostenible para las comunidades. Las soluciones solares permiten ampliar la cobertura eléctrica en zonas rurales y mejorar sus condiciones de vida \parencite{ecopetrolEntorno}.
+
+\subsubsection*{Regulaciones de seguridad aplicables}
+
+El proceso puede manejar datos personales de beneficiarios, representantes de comunidades, proveedores y contratistas, es por esto que debe cumplir con la Ley 1581 de 2012 sobre protección de datos personales \parencite{ley1581de2012}.
+
+Ecopetrol también cuenta con lineamientos internos para proteger sus activos de información. Su Manual de Seguridad de la Información aplica tanto a la empresa como a contratistas con acceso a información corporativa \parencite{ecopetrolManualSeguridad}.
+
+Con estos lineamientos se busca preservar la confidencialidad, integridad y disponibilidad de la información, así como también se establecen responsabilidades para su manejo y protección durante su ciclo de vida.
+
+\subsubsection*{Problema de seguridad identificado}
+
+Para que el proceso se pueda ejecutar, es necesario compartir información entre equipos internos, contratistas, proveedores y comunidades durante varias etapas del proyecto. Esto eventualmente va a generar riesgos sobre datos personales, documentos técnicos, contratos, aprobaciones y resultados de pruebas. También pueden existir equipos remotos que monitorean después de instalar la solución. Estos dispositivos generan o suman riesgos relacionados con accesos no autorizados o pérdida de disponibilidad.
+
+Ya con esto se vuelve necesaria la participación de un arquitecto de seguridad que sea capaz de definir controles de acceso, trazabilidad, protección de datos y seguridad de terceros. Agregado a eso, también debe establecer requisitos para los sistemas y dispositivos que soportan el proceso.
 
 \subsubsection*{Cómo se modelaría como proceso}
 
@@ -38,7 +62,7 @@ Identificar necesidad – Caracterizar comunidad – Evaluar viabilidad - ¿Es v
 \begin{itemize}
     \item Sistema de Gestión Territorial / Información Geográfica: soporte para la caracterización territorial y localización de beneficiarios.
     \item Sistema de Gestión de Proyectos: formulación, seguimiento, documentación y control de la iniciativa.
-    \item SAP Ariba: soporte de procesos relacionados con proveedores, abastecimiento y contratación.
+    \item SAP Ariba: soporte de procesos relacionados con proveedores, abastecimiento y contratación \parencite{ecopetrolAriba}.
     \item Sistema de Seguimiento Contractual: seguimiento de la ejecución de servicios y obligaciones del contratista.
     \item Sistema de Gestión Documental: almacenamiento de estudios, diseños, actas, evidencias, informes y documentación técnica.
     \item Plataforma de Monitoreo Técnico: podría utilizarse para hacer seguimiento a la solución instalada cuando exista monitoreo remoto.

@@ -1,0 +1,313 @@
+\section{Identificación, evaluación y valoración de los riesgos de seguridad de la información}
+
+La identificación de riesgos se empieza por los activos que soportan la gestión y despacho de la flota de Transmilenio. Cada riesgo surge cuando una amenaza puede usar una debilidad y causar daño sobre un activo \parencite{iso27005,funcionpublica2025}.
+
+El proceso usa datos GPS/AVL, sensores, decisiones de despacho y canales de información al usuario. También depende del sistema ITS, el sistema de despacho y las comunicaciones con el CCI \parencite{transmilenio2026cci}.
+
+\subsection{Identificación y valoración de los activos}
+
+A continuación se muestra una tabla donde se valoran los activos según su confidencialidad, integridad y disponibilidad. Esto para establecer qué tan sensible resulta cada activo para la operación \parencite{mintic2021,transmilenio2025pesi}.
+
+\begin{table}[H]
+	\centering
+	\caption{Identificación y valoración de los activos del proceso}
+	\label{tab:activos-riesgo}
+	
+	\footnotesize
+	\renewcommand{\arraystretch}{1.25}
+	\setlength{\tabcolsep}{3pt}
+	
+	\begin{tabularx}{\textwidth}{
+			@{}
+			>{\raggedright\arraybackslash}X
+			>{\raggedright\arraybackslash}p{1.8cm}
+			>{\centering\arraybackslash}p{1.65cm}
+			>{\centering\arraybackslash}p{1.35cm}
+			>{\centering\arraybackslash}p{1.65cm}
+			>{\centering\arraybackslash}p{1.35cm}
+			@{}
+		}
+		\toprule
+		\textbf{Activo} &
+		\textbf{Tipo} &
+		\makecell{\textbf{Confiden-}\\\textbf{cialidad}} &
+		\makecell{\textbf{Inte-}\\\textbf{gridad}} &
+		\makecell{\textbf{Disponi-}\\\textbf{bilidad}} &
+		\makecell{\textbf{Criti-}\\\textbf{cidad}} \\
+		\midrule
+		
+		Datos GPS/AVL y estado de la flota &
+		Información &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Programación, rutas, horarios y despachos &
+		Información &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Órdenes y decisiones de regulación &
+		Información &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Bitácora de decisiones del CCI &
+		Información &
+		Media &
+		Alta &
+		Media &
+		Alta \\
+		
+		Sistema de Despacho y Control de Flota &
+		Software &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Sistema ITS a bordo &
+		Software y hardware &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Red de comunicación vehículo--CCI &
+		Servicio &
+		Media &
+		Alta &
+		Alta &
+		Alta \\
+		
+		Cuentas de operadores y supervisores &
+		Información &
+		Alta &
+		Alta &
+		Media &
+		Alta \\
+		
+		Información publicada al usuario &
+		Información &
+		Baja &
+		Alta &
+		Media &
+		Media \\
+		
+		\bottomrule
+	\end{tabularx}
+\end{table}
+\begin{flushleft}
+	\footnotesize
+	\textit{Fuente: elaboración propia con base en \cite{mintic2021,transmilenio2025pesi,transmilenio2026cci}.}
+\end{flushleft}
+
+Como se puede ver en la tabla anterior, la integridad tiene un peso alto en casi todos los activos identificados. Una modificación o actualización incorrecta puede cambiar las decisiones que se toman desde el CCI. Asimismo, la disponibilidad también tiene una valoración alta en los sistemas de control, lo que quiere decir que el proceso requiere información actualizada para poder monitorear y regular la flota.
+
+También se nota que la confidencialidad toma un mayor peso en las cuentas de acceso, básicamente, su exposición permitiría ingresar a sistemas usados para tomar decisiones sobre la operación \parencite{transmilenio2025pesi}. Con el modelo TOGAF se identifican datos de posición, velocidad, ocupación y decisiones que se toman desde el CCI. También se contempla una bitácora con responsable, momento, instrucción y resultado.
+
+\subsection{Identificación de los riesgos}
+
+Los riesgos se definieron teniendo en cuenta los activos, amenazas y posibles fallas que surjan en el proceso. Se le dió prioridad a situaciones que afectan integridad, disponibilidad, acceso y trazabilidad \parencite{iso27005,mintic2021}.
+
+\begin{landscape}
+	
+	\begin{longtable}{
+			>{\centering\arraybackslash}p{0.8cm}
+			>{\raggedright\arraybackslash}p{3.2cm}
+			>{\raggedright\arraybackslash}p{3.2cm}
+			>{\raggedright\arraybackslash}p{4cm}
+			>{\raggedright\arraybackslash}p{6cm}
+			>{\raggedright\arraybackslash}p{3cm}
+		}
+		\caption{Identificación de riesgos de seguridad de la información}
+		\label{tab:identificacion-riesgos} \\
+		
+		\toprule
+		\textbf{ID} &
+		\textbf{Activo afectado} &
+		\textbf{Amenaza} &
+		\textbf{Debilidad asociada} &
+		\textbf{Riesgo} &
+		\textbf{Propiedad afectada} \\
+		\midrule
+		\endfirsthead
+		
+		\toprule
+		\textbf{ID} &
+		\textbf{Activo afectado} &
+		\textbf{Amenaza} &
+		\textbf{Debilidad asociada} &
+		\textbf{Riesgo} &
+		\textbf{Propiedad afectada} \\
+		\midrule
+		\endhead
+		
+		R1 &
+		Datos GPS/AVL &
+		Manipulación o suplantación de datos &
+		Validación débil de la fuente o señal &
+		Uso de datos falsos para tomar decisiones incorrectas de despacho &
+		Integridad \\
+		
+		\midrule
+		
+		R2 &
+		Red vehículo--CCI &
+		Caída, ataque o falla de comunicaciones &
+		Alta dependencia de datos enviados en tiempo real &
+		Pérdida del monitoreo y control oportuno de la flota &
+		Disponibilidad \\
+		
+		\midrule
+		
+		R3 &
+		Sistema de Despacho &
+		Acceso no autorizado &
+		Robo de cuentas o permisos mal asignados &
+		Cambio no autorizado de rutas, frecuencias u órdenes de despacho &
+		Integridad \\
+		
+		\midrule
+		
+		R4 &
+		Bitácora de decisiones &
+		Alteración o eliminación de registros &
+		Falta de registros protegidos contra cambios &
+		Pérdida de evidencia sobre las decisiones tomadas por los operadores &
+		Integridad \\
+		
+		\midrule
+		
+		R5 &
+		Integraciones entre sistemas &
+		Alteración de mensajes o datos &
+		Fallas en los controles sobre interfaces y canales &
+		Ingreso de información incorrecta al sistema de despacho &
+		Integridad \\
+		
+		\midrule
+		
+		R6 &
+		Sistema de Despacho &
+		Falla técnica o ataque que impida su uso &
+		Dependencia del sistema para regular la operación &
+		Imposibilidad de ejecutar cambios de despacho cuando sean requeridos &
+		Disponibilidad \\
+		
+		\midrule
+		
+		R7 &
+		Cuentas de operadores &
+		Robo o uso indebido de credenciales &
+		Controles de acceso insuficientes &
+		Uso de una cuenta válida para consultar o modificar información &
+		Confidencialidad e integridad \\
+		
+		\midrule
+		
+		R8 &
+		Información al usuario &
+		Alteración de información publicada &
+		Datos incorrectos recibidos desde sistemas internos &
+		Publicación de rutas, desvíos o tiempos que no correspondan &
+		Integridad \\
+		
+		\bottomrule
+		
+	\end{longtable}
+	
+\end{landscape}
+\begin{flushleft}
+	\footnotesize
+	\textit{Fuente: elaboración propia con base en \cite{iso27005,mintic2021,transmilenio2025pesi,transmilenio2026cci}.}
+\end{flushleft}
+
+Los riesgos identificados se relacionan con los datos y sistemas que soportan la correcta operación del CCI. Entre los principales problemas están la alteración de datos GPS, la pérdida de disponibilidad, los accesos no autorizados y la modificación de registros. Estos eventos pueden afectar las decisiones de despacho, el seguimiento de la flota y la trazabilidad de las acciones realizadas \parencite{transmilenio2025pesi,transmilenio2026cci}.
+
+\subsection{Evaluación del impacto}
+
+En esta fase se evalúa el impacto que tendría cada riesgo sobre la operación, por eso, la valoración se realiza con los niveles leve, menor, moderado, mayor y catastrófico, como se puede ver en la siguiente tabla \parencite{funcionpublica2025}.
+
+\begin{table}[H]
+	\centering
+	\caption{Evaluación del impacto de los riesgos identificados}
+	\label{tab:evaluacion-impacto}
+	\small
+	\renewcommand{\arraystretch}{1.3}
+	
+	\begin{tabularx}{\textwidth}{
+			>{\centering\arraybackslash}p{0.8cm}
+			>{\raggedright\arraybackslash}p{4.2cm}
+			>{\centering\arraybackslash}p{2cm}
+			Y
+		}
+		\toprule
+		\textbf{ID} &
+		\textbf{Impacto} &
+		\textbf{Valoración} &
+		\textbf{Justificación} \\
+		\midrule
+		
+		R1 &
+		Decisiones erradas sobre ubicación, rutas o frecuencia de los buses &
+		Mayor &
+		Los datos falsos pueden afectar la regulación de varios vehículos y perjudicar el servicio. \\
+		
+		R2 &
+		Pérdida temporal del monitoreo y control de la flota &
+		Mayor &
+		La comunicación en tiempo real permite tomar y ejecutar decisiones desde el CCI. \\
+		
+		R3 &
+		Ejecución de órdenes de despacho por una persona no autorizada &
+		Mayor &
+		Los cambios pueden afectar rutas, frecuencias y el servicio recibido por los usuarios. \\
+		
+		R4 &
+		Falta de evidencia sobre decisiones y responsables &
+		Moderado &
+		Reduce la capacidad de auditoría y dificulta revisar errores o acciones no autorizadas. \\
+		
+		R5 &
+		Decisiones tomadas con información alterada entre sistemas &
+		Mayor &
+		Un dato incorrecto puede propagarse y causar acciones erradas sobre la operación. \\
+		
+		R6 &
+		Falta de acceso al sistema encargado del despacho &
+		Mayor &
+		Impide aplicar medidas frente a retrasos, congestión y otras novedades de la operación. \\
+		
+		R7 &
+		Consulta o modificación de información mediante cuentas comprometidas &
+		Mayor &
+		Una cuenta con permisos altos puede permitir cambios con efecto directo sobre la operación. \\
+		
+		R8 &
+		Información incorrecta sobre rutas, tiempos o cambios del servicio &
+		Moderado &
+		Puede generar confusión y afectar la confianza de los usuarios en la información publicada. \\
+		
+		\bottomrule
+	\end{tabularx}
+\end{table}
+\begin{flushleft}
+	\footnotesize
+	\textit{Fuente: elaboración propia con base en los criterios de \cite{funcionpublica2025}.}
+\end{flushleft}
+
+\subsection{Valoración general de los riesgos}
+
+La evaluación muestra que los riesgos más serios afectan la integridad y la disponibilidad de la información, y resulta que el proceso depende de datos correctos y disponibles para tomar decisiones sobre la flota de buses \parencite{mintic2021,transmilenio2026cci}.
+
+La alteración de datos puede llevar a cambios incorrectos en rutas, frecuencias o despachos, por lo que una falla en los sistemas puede impedir el monitoreo y control desde el CCI. Además, los accesos no autorizados también representan un riesgo importante, pues una cuenta comprometida puede permitir cambios sobre datos, órdenes o registros del proceso. El modelo contempla perfiles distintos para operadores y supervisores, según las funciones asignadas \parencite{transmilenio2025pesi}.
+
+Con respecto a la trazabilidad, esta tiene un impacto menos directo sobre la operación inmediata, aunque permite revisar quién tomó una decisión, cuándo se hizo y cuál fue su resultado. Estos registros son necesarios para revisar errores y detectar acciones no autorizadas.
+
+Se puede ver que los riesgos que tienen un mayor impacto se concentran en los sistemas que soportan el despacho, mientras que los riesgos moderados afectan en gran medida, o principalmente al registro de decisiones y la información entregada al usuario.

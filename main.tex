@@ -26,12 +26,16 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{makecell}
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage[style=apa, backend=biber]{biblatex}
 \DeclareLanguageMapping{spanish}{spanish-apa}
 \addbibresource{referencias.bib}
 \hypersetup{hidelinks}
+\usepackage{pdflscape}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
 % Ajuste menor: "s. f." con espacio (biblatex-apa lo deja como "s.f.").
 \DefineBibliographyStrings{spanish}{%
@@ -50,7 +54,7 @@
 	Actividad de Aprendizaje No.~1: Fase 1 del Proyecto Final%
 }
 % TODO: completar los nombres y códigos de los integrantes restantes.
-\authorsnames{Nicolás Guevara Herrán (20211180026), Jhojan Stiven Aragón Ramirez (20221020060), Nombre Integrante 3 (Código 3)}
+\authorsnames{Nicolás Guevara Herrán (20211180026), Jhojan Stiven Aragón Ramírez (20221020060), Daniel Orlando Villescas Mora (20221020065)}
 \authorsaffiliations{{Maestría en Gestión y Seguridad de la Información, Facultad de Tecnología\\Universidad Distrital Francisco José de Caldas}}
 \course{Arquitectura de Seguridad}
 \professor{Camilo Enrique Rocha Calderon}
