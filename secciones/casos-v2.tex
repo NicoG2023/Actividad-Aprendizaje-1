@@ -1,0 +1,401 @@
+% ======================================================================
+% Casos de negocio (v2): presentación de los cinco casos, selección del
+% caso de negocio y análisis TOGAF.
+% Contenido base: Punto 2 del Anexo 1 (recursoss/Punto2Anexo1.pdf).
+% ======================================================================
+
+A continuación se presentan los cinco casos de negocio propuestos por los integrantes del grupo. Cada caso contiene: a) descripción del sector industrial de la organización, b) objetivos estratégicos, c) regulaciones de seguridad que le aplican según el tipo de información que procesa y d) descripción del problema que se busca resolver y donde se requiere la participación de un arquitecto de seguridad.
+
+\subsection{Caso de negocio 1: Gestión y despacho de flota desde el CCI}
+
+\textit{Daniel Orlando Villescas Mora -- TransMilenio S.A.}
+
+\subsubsection*{a. Sector industrial}
+
+TransMilenio S.A. es una empresa industrial y comercial del Estado del orden distrital, adscrita a la Alcaldía Mayor de Bogotá, que opera en el sector de transporte público masivo urbano (componentes Troncal, TransMiZonal y TransMiCable).
+
+\subsubsection*{b. Objetivos estratégicos}
+
+\begin{itemize}
+	\item Garantizar una movilidad urbana sostenible, segura y de calidad para los habitantes de Bogotá.
+	\item Integrar y modernizar la operación del sistema mediante tecnología, consolidando el CCI como centro único de control (primera vez en 25 años que se gestiona la totalidad del sistema en un mismo sitio) \parencite{transmilenio2026cci,alcaldia2026cci}.
+	\item Reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real.
+\end{itemize}
+
+\subsubsection*{c. Regulaciones de seguridad aplicables}
+
+Según el tipo de información que procesa (datos de geolocalización, video-vigilancia, datos personales de usuarios y conductores e información operativa crítica):
+
+\begin{itemize}
+	\item Ley Estatutaria 1581 de 2012 (protección de datos personales) y su decreto reglamentario 1074 de 2015 \parencite{ley1581de2012,decreto1074de2015}.
+	\item Resolución MinTIC 500 de 2021 (Modelo de Seguridad y Privacidad de la Información, MSPI) \parencite{mintic2021}.
+	\item Decreto 338 de 2022 (gobernanza de seguridad digital e infraestructuras críticas cibernéticas), relevante porque el CCI es infraestructura crítica de movilidad \parencite{decreto338de2022}.
+	\item Políticas internas: Plan Estratégico de Seguridad de la Información (PESI v2) \parencite{transmilenio2025pesi}, Políticas de Seguridad y Privacidad de la Información (v7) y Política de Tratamiento y Protección de Datos Personales (v6) de TransMilenio.
+\end{itemize}
+
+\subsubsection*{d. Problema y necesidad del arquitecto de seguridad}
+
+El CCI concentra en un solo sitio la supervisión de más de 10.500 buses, convirtiéndose en un único punto para la operación de toda la ciudad. Se requiere un arquitecto de seguridad para garantizar la integridad y autenticidad de las señales GPS/AVL frente a manipulación o suplantación, diseñar control de acceso granular para las más de 200 personas que operan la sala y definir un esquema de continuidad/redundancia que evite que una falla del CCI paralice la regulación de la flota, estableciendo trazabilidad de cada decisión operativa.
+
+\subsection{Caso de negocio 2: Gestión de incidentes y emergencias}
+
+\textit{Daniel Orlando Villescas Mora -- TransMilenio S.A.}
+
+\subsubsection*{a. Sector industrial}
+
+El mismo sector de transporte público masivo urbano, en su componente de seguridad ciudadana y física del sistema, apoyado en video-analítica con inteligencia artificial.
+
+\subsubsection*{b. Objetivos estratégicos}
+
+\begin{itemize}
+	\item Reducir los tiempos de respuesta ante incidentes de seguridad, salud u orden público dentro del sistema.
+	\item Fortalecer la seguridad percibida y real de los usuarios del sistema.
+	\item Consolidar la interoperabilidad con la Policía y las secretarías de Seguridad y Movilidad para la judicialización de delitos.
+\end{itemize}
+
+\subsubsection*{c. Regulaciones de seguridad aplicables}
+
+\begin{itemize}
+	\item Ley 1581 de 2012 y Decreto 1074 de 2015 (tratamiento de datos personales captados por CCTV) \parencite{ley1581de2012,decreto1074de2015}.
+	\item Resolución 500 de 2021 (MSPI) y Decreto 338 de 2022 (seguridad digital) \parencite{mintic2021,decreto338de2022}.
+	\item Normas de cadena de custodia aplicables a evidencia digital usada en procesos judiciales, planteadas en el Código de Procedimiento Penal colombiano, Ley 906 de 2004 \parencite{ley906de2004}.
+\end{itemize}
+
+\subsubsection*{d. Problema y necesidad del arquitecto de seguridad}
+
+El proceso mezcla seguridad física y seguridad de la información a gran escala. Se requiere un arquitecto de seguridad para definir políticas de acceso y retención sobre miles de horas de video con datos personales sensibles, garantizar una cadena de custodia digital verificable para que la evidencia usada en capturas no pueda ser alterada, asegurar la disponibilidad de los sistemas de video-analítica en el momento crítico y diseñar protocolos seguros de intercambio de información (API segura, VPN, qué datos se comparten y cuáles no) con la Policía y organismos externos.
+
+\subsection{Caso de negocio 3: Gestión de relacionamiento Estado-ciudadano}
+
+\textit{Jhojan Aragón Ramírez -- Colombia Compra Eficiente}
+
+\subsubsection*{a. Sector industrial}
+
+Colombia Compra Eficiente es la Agencia Nacional de Contratación Pública de Colombia, entidad descentralizada de la Rama Ejecutiva creada por el Decreto Ley 4170 de 2011, adscrita al Departamento Nacional de Planeación, y es el ente rector del Sistema de Compra Pública en el país, encargado de impulsar políticas, normas y mejores prácticas en los procesos de contratación \parencite{decretoley4170de2011,colombiacompra2021}.
+
+\subsubsection*{b. Objetivos estratégicos}
+
+\begin{itemize}
+	\item Promover una contratación pública eficiente, transparente y orientada al buen uso de los recursos del Estado \parencite{colombiacompra2021}.
+	\item Fortalecer la participación ciudadana y la rendición de cuentas.
+	\item Estandarizar el relacionamiento con ciudadanos y grupos de interés a través de los canales de atención (PQRSD).
+\end{itemize}
+
+\subsubsection*{c. Regulaciones de seguridad aplicables}
+
+\begin{itemize}
+	\item Ley 1581 de 2012 y Decreto 1074 de 2015 (protección de datos personales) \parencite{ley1581de2012,decreto1074de2015}.
+	\item Ley 1712 de 2014 (Ley de Transparencia y Acceso a la Información Pública), que rige la respuesta a solicitudes ciudadanas \parencite{ley1712de2014}.
+	\item Resolución MinTIC 500 de 2021 (MSPI) y Decreto 338 de 2022 (seguridad digital para entidades públicas) \parencite{mintic2021,decreto338de2022}.
+\end{itemize}
+
+\subsubsection*{d. Problema y necesidad del arquitecto de seguridad}
+
+Al recibir, clasificar y responder solicitudes ciudadanas, la entidad maneja datos personales y documentos sensibles de miles de ciudadanos. Se requiere un arquitecto de seguridad para diseñar mecanismos de autenticación, autorización basada en roles, cifrado de la información y registro de auditoría a lo largo de todo el flujo (recepción, clasificación, asignación, respuesta), garantizando confidencialidad, integridad y disponibilidad de la información entregada por los ciudadanos.
+
+\subsection{Caso de negocio 4: Gestión de contratación}
+
+\textit{Jhojan Aragón Ramírez -- Colombia Compra Eficiente}
+
+\subsubsection*{a. Sector industrial}
+
+El mismo sector de administración pública y contratación estatal, bajo el marco del Estatuto General de Contratación de la Administración Pública (Ley 80 de 1993 y Ley 1150 de 2007), que la agencia reglamenta operativamente mediante el Decreto 1082 de 2015 \parencite{ley80de1993,ley1150de2007,decreto1082de2015}.
+
+\subsubsection*{b. Objetivos estratégicos}
+
+\begin{itemize}
+	\item Garantizar transparencia y trazabilidad en cada etapa del proceso de contratación.
+	\item Optimizar el uso de los recursos públicos mediante instrumentos como los Acuerdos Marco de Precios, buscando efectividad entre oferta y demanda y racionalización normativa.
+	\item Prevenir prácticas de corrupción en la contratación pública.
+\end{itemize}
+
+\subsubsection*{c. Regulaciones de seguridad aplicables}
+
+Dado que procesa información contractual, ofertas de proveedores y decisiones de adjudicación:
+
+\begin{itemize}
+	\item Ley 80 de 1993, Ley 1150 de 2007 y Decreto 1082 de 2015 (marco de contratación estatal) \parencite{ley80de1993,ley1150de2007,decreto1082de2015}.
+	\item Ley 1474 de 2011 (Estatuto Anticorrupción), relevante para la segregación de funciones en contratación \parencite{ley1474de2011}.
+	\item Ley 1712 de 2014 (transparencia y publicidad de los procesos de contratación) \parencite{ley1712de2014}.
+	\item Resolución 500 de 2021 (MSPI) y normas de protección de datos ya citadas, para la información de proveedores \parencite{mintic2021}.
+\end{itemize}
+
+\subsubsection*{d. Problema y necesidad del arquitecto de seguridad}
+
+Dada la exposición al riesgo de fraude y falta de transparencia en la contratación pública, se requiere un arquitecto de seguridad para implementar segregación de funciones (que una misma persona no controle preparación, evaluación, aprobación y supervisión de un contrato), control de acceso por roles, autenticación robusta, registros de auditoría inmutables y controles de integridad sobre los documentos contractuales, de forma que se pueda identificar de manera confiable quién realizó cada acción en el proceso.
+
+\subsection{Caso de negocio 5: Implementación de soluciones solares fotovoltaicas para comunidades}
+
+\textit{Nicolás Guevara Herrán -- Ecopetrol}
+
+\subsubsection*{a. Sector industrial}
+
+Ecopetrol es la principal empresa de hidrocarburos y energía de Colombia, que cotiza en la Bolsa de Valores de Colombia y en la Bolsa de Nueva York (NYSE). Este caso puntual se enmarca en su línea de desarrollo territorial y transición energética, con proyectos reales identificados en Putumayo, La Guajira y Santander \parencite{larepublica2026,vanguardia2025}, dentro del Programa para el Mejoramiento de las Condiciones Esenciales de Vida (servicios públicos, energía y gas).
+
+\subsubsection*{b. Objetivos estratégicos}
+
+\begin{itemize}
+	\item Avanzar en la transición energética, diversificando la matriz hacia fuentes renovables (solar, gas de bajas emisiones).
+	\item Fortalecer el relacionamiento social y la licencia social para operar en los territorios donde tiene presencia.
+	\item Mejorar las condiciones de vida y el acceso a servicios públicos de las comunidades vecinas a su operación.
+\end{itemize}
+
+\subsubsection*{c. Regulaciones de seguridad aplicables}
+
+\begin{itemize}
+	\item Ley 1581 de 2012 y Decreto 1074 de 2015 (datos personales de comunidades y beneficiarios) \parencite{ley1581de2012,decreto1074de2015}.
+	\item Decreto 338 de 2022 (seguridad digital e infraestructuras críticas), aplicable dado que Ecopetrol es considerada infraestructura crítica del sector energético \parencite{decreto338de2022}.
+	\item Normativa de la SEC de Estados Unidos y la Ley Sarbanes-Oxley (SOX, secciones 302/404), por tratarse de un emisor con ADRs listados en NYSE, lo que exige controles internos sobre la información financiera y de gestión.
+	\item Ley 1715 de 2014 (modificada por la Ley 2099 de 2021), que regula la integración de fuentes no convencionales de energía renovable (incluida la solar) al Sistema Energético Nacional y aplica directamente al diseño, instalación y operación de las soluciones fotovoltaicas del proyecto \parencite{ley1715de2014}.
+	\item ISO/IEC 27001 como marco de gestión de seguridad de la información adoptado corporativamente \parencite{iso27001}.
+\end{itemize}
+
+\subsubsection*{d. Problema y necesidad del arquitecto de seguridad}
+
+El proceso combina datos sociales sensibles de comunidades, información técnica/contractual con terceros (SAP Ariba) y, cuando existe monitoreo remoto, dispositivos IoT en campo. Se requiere un arquitecto de seguridad para proteger la confidencialidad de los datos de beneficiarios y proveedores, garantizar la integridad de diseños, presupuestos, aprobaciones y resultados de pruebas de instalación, establecer segregación de funciones entre quien formula, aprueba, contrata y valida una iniciativa, controlar y limitar el acceso de contratistas y terceros a los sistemas de Ecopetrol y, cuando aplique, asegurar la autenticación de dispositivos y el cifrado de comunicaciones de los sistemas de monitoreo remoto instalados en campo.
+
+\section{Selección del caso de negocio}
+
+Después de presentar y analizar los cinco casos de negocio compartidos por los integrantes del grupo, se decidió seleccionar como proyecto final de la asignatura el Caso de negocio 1 de TransMilenio S.A.: Gestión y despacho de flota desde el Centro de Control Integrado (CCI).
+
+Esta selección se sustenta en varios criterios. En primer lugar, el proceso cuenta con información pública reciente, verificable y suficientemente detallada (entrada en operación del CCI en marzo de 2026) \parencite{transmilenio2026cci}, lo que permite construir un caso realista y bien fundamentado. En segundo lugar, el proceso presenta una riqueza particular desde la perspectiva de arquitectura de seguridad, al combinar retos de integridad (autenticidad de señales GPS/AVL), disponibilidad (el CCI como potencial punto único de falla), control de acceso (múltiples roles y perfiles dentro de una infraestructura) y trazabilidad de decisiones operativas críticas.
+
+A continuación, se presenta el análisis TOGAF desarrollado para este caso de negocio, correspondiente a las fases Preliminar, Fase A (Architecture Vision), Fase B (Business Architecture), Fase C (Information Systems Architecture), Fase D (Technology Architecture), Fase E (Opportunities \& Solutions), Fase F (Migration Planning), Fase G (Implementation Governance) y Fase H (Architecture Change Management).
+
+\subsection{Análisis TOGAF del caso seleccionado}
+
+\begin{singlespace}
+
+\subsubsection*{Fase Preliminar}
+
+\begin{itemize}
+	\item \textbf{Objetivo:} preparar la capacidad de arquitectura y definir el alcance del proyecto para el proceso de gestión y despacho de flota desde el CCI.
+	\item \textbf{Actividades:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Conformar un Comité de Arquitectura para el proceso, con participación de la Gerencia General, la Subgerencia de Operaciones, la Dirección TIC, las áreas de analítica y representantes de los operadores de flota; además, la Dirección Técnica de Seguridad participa cuando una novedad de seguridad impacta la operación.
+		\item[$\Rightarrow$] Definir el alcance en la supervisión, control y regulación de la flota, lo que incluye la recolección de datos, el análisis de la operación, la toma de decisiones, la ejecución de órdenes y la información al usuario.
+		\item[$\Rightarrow$] Levantar el inventario de sistemas y tecnologías involucrados en la operación actual del CCI, manteniendo como antecedente la situación previa de salas de control separadas para identificar mejoras y brechas.
+	\end{itemize}
+	\item \textbf{Principios de arquitectura definidos para el proceso:}
+	\begin{itemize}
+		\item[$\Rightarrow$] \textbf{Dato único y consistente:} una sola fuente de verdad lógica para la posición, el estado y la programación de la flota, evitando duplicidades y contradicciones entre sistemas.
+		\item[$\Rightarrow$] \textbf{Integración de sistemas por API o bus de eventos en tiempo real} entre los módulos de despacho, analítica, alertas y demás componentes que suministran información al CCI. Cuando la implementación exacta no sea pública, este mecanismo se asume como directriz de interoperabilidad del modelo académico.
+		\item[$\Rightarrow$] \textbf{Seguridad desde el diseño (Security by Design):} control de acceso, cifrado, integridad y trazabilidad incorporados desde el diseño de cada componente que soporta el proceso \parencite{mintic2021}.
+		\item[$\Rightarrow$] \textbf{Continuidad operativa:} el CCI no debe convertirse en un punto único de falla para la supervisión y regulación de la flota.
+	\end{itemize}
+	\item \textbf{Alcance inicial:} recolección y análisis de datos de flota, decisiones de despacho y regulación, ejecución de órdenes, recepción de alertas operacionales e información al usuario.
+\end{itemize}
+
+\subsubsection*{Fase A: Architecture Vision}
+
+\begin{itemize}
+	\item \textbf{Objetivo:} definir la visión de arquitectura del proceso de gestión y despacho de flota desde el CCI y obtener su aprobación por parte de la Gerencia General de TransMilenio.
+	\item \textbf{Visión:} consolidar el CCI como un centro de control integrado, seguro y resiliente, capaz de supervisar y regular la flota de TransMilenio en tiempo real, tomando decisiones basadas en información confiable y comunicándolas oportunamente a operadores, conductores y usuarios.
+	\item \textbf{Antecedente (antes de la entrada en operación del CCI):}
+	\begin{itemize}
+		\item[$\Rightarrow$] Operación fragmentada por componente (Troncal, TransMiZonal y TransMiCable), con salas de control separadas \parencite{transmilenio2026cci}.
+		\item[$\Rightarrow$] Información operacional distribuida entre diferentes sistemas y actores.
+		\item[$\Rightarrow$] Menor integración entre la operación de flota, la analítica, la seguridad y la información al usuario.
+	\end{itemize}
+	\item \textbf{Escenario actual (CCI en operación desde marzo de 2026):}
+	\begin{itemize}
+		\item[$\Rightarrow$] Un mismo centro coordina en tiempo real la operación de los componentes Troncal, TransMiZonal y TransMiCable \parencite{transmilenio2026cci}.
+		\item[$\Rightarrow$] El CCI se apoya en información del SIRCI/FMS, ITS a bordo, analítica y tableros operativos para supervisar la operación \parencite{transmilenio2020peti,transmilenio2026cci}.
+		\item[$\Rightarrow$] La operación puede responder a novedades como congestión, retrasos, bloqueos e incidentes que afecten el servicio.
+		\item[$\Rightarrow$] Las capacidades de información al usuario permiten comunicar novedades y alternativas mediante los canales disponibles.
+	\end{itemize}
+	\item \textbf{Escenario futuro y arquitectura objetivo:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Integración trazable y más madura entre despacho, analítica, alertas e información al usuario, utilizando APIs o un bus de eventos en tiempo real como supuesto de arquitectura cuando el detalle interno no sea público.
+		\item[$\Rightarrow$] Mayor trazabilidad de las decisiones de regulación: dato o evento de origen, responsable, instrucción emitida y resultado.
+		\item[$\Rightarrow$] Mayor resiliencia y redundancia para las funciones críticas del CCI.
+		\item[$\Rightarrow$] Gobierno de identidades, roles y accesos consistente entre las plataformas utilizadas por el proceso.
+	\end{itemize}
+	\item \textbf{Mapa de interesados (stakeholders):}
+	\begin{itemize}
+		\item[$\Rightarrow$] Gerencia General de TransMilenio (patrocinador).
+		\item[$\Rightarrow$] Subgerencia de Operaciones (responsable principal del dominio operativo).
+		\item[$\Rightarrow$] Direcciones Técnicas Troncal y Zonal.
+		\item[$\Rightarrow$] Dirección TIC y áreas de analítica de datos.
+		\item[$\Rightarrow$] Operadores de flota (consorcios troncales y zonales) y conductores.
+		\item[$\Rightarrow$] Dirección Técnica de Seguridad y organismos externos, únicamente cuando una novedad afecta la operación.
+		\item[$\Rightarrow$] Usuarios del sistema, beneficiarios finales de una operación normal y de información oportuna.
+	\end{itemize}
+	\item \textbf{Business case resumido:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Reducción de tiempos de espera y variabilidad del servicio mediante mejor regulación de flota en tiempo real.
+		\item[$\Rightarrow$] Mayor eficiencia operativa mediante información integrada para monitoreo y toma de decisiones.
+		\item[$\Rightarrow$] Mejora de la trazabilidad, continuidad y seguridad de la información utilizada para regular la operación.
+		\item[$\Rightarrow$] Mejor comunicación al usuario frente a novedades, desvíos y cambios operacionales.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Fase B: Business Architecture}
+
+\begin{itemize}
+	\item \textbf{Objetivo:} modelar el proceso de gestión y despacho de flota desde el CCI y su alineación con la visión de una operación integrada, confiable y segura.
+	\item \textbf{Proceso clave:} gestión y despacho de flota desde el CCI \parencite{transmilenio2020peti}.
+	\begin{enumerate}
+		\item Recolección de datos en tiempo real: posición GPS/AVL de cada bus y, cuando esté disponible, sensores de ocupación y estado operacional.
+		\item Análisis de la operación: comparación de tiempos reales frente a los programados, frecuencias, demanda y detección de congestión o bunching de buses.
+		\item Toma de decisión operativa: reprogramar despacho, desviar ruta, reforzar frecuencia, regular intervalos o aplicar otra medida operacional.
+		\item Ejecución de la orden: comunicación al conductor, operador de flota o sistema de despacho/control que corresponda.
+	\end{enumerate}
+	\item \textbf{Relación con procesos externos:} la gestión de incidentes y emergencias puede generar una alerta o novedad externa que dispare una acción dentro del proceso principal. Por ejemplo, un evento de orden público puede provocar un desvío o un cambio de frecuencia.
+	\item \textbf{Servicios de negocio del proceso:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Monitoreo de flota en tiempo real.
+		\item[$\Rightarrow$] Regulación y reprogramación dinámica de la operación.
+		\item[$\Rightarrow$] Gestión de novedades operacionales.
+	\end{itemize}
+	\item \textbf{Actores y roles del proceso:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Operador de monitoreo de flota.
+		\item[$\Rightarrow$] Supervisor de despacho.
+		\item[$\Rightarrow$] Conductor.
+	\end{itemize}
+	\item \textbf{Objetos de negocio e información:} programación operacional, ruta, servicio, vehículo, novedad operacional, instrucción de regulación y reporte de operación.
+	\item \textbf{Herramienta:} diagramas en ArchiMate para mostrar actores, roles, proceso, servicios, objetos de negocio y relaciones con aplicaciones y tecnología.
+\end{itemize}
+
+\subsubsection*{Fase C: Information Systems Architecture}
+
+\begin{itemize}
+	\item \textbf{1. Data Architecture}
+	\begin{itemize}
+		\item \textbf{Datos clave:}
+		\begin{itemize}
+			\item[$\Rightarrow$] Posición y velocidad GPS/AVL, identificación del vehículo y estado operacional \parencite{transmilenio2026cci}.
+			\item[$\Rightarrow$] Programación de servicios, rutas, horarios, frecuencias y despachos \parencite{transmilenio2020peti}.
+			\item[$\Rightarrow$] Demanda, ocupación y demás variables disponibles para apoyar la regulación \parencite{transmilenio2026cci}.
+			\item[$\Rightarrow$] Alertas y novedades operacionales, incluyendo eventos provenientes de procesos externos que afecten la prestación del servicio.
+			\item[$\Rightarrow$] Bitácora de decisiones del CCI: decisión de despacho/regulación, marca de tiempo, responsable, instrucción emitida y resultado.
+			\item[$\Rightarrow$] Información publicada al usuario sobre novedades, desvíos o cambios operacionales.
+		\end{itemize}
+		\item \textbf{Principios de datos:}
+		\begin{itemize}
+			\item[$\Rightarrow$] \textbf{Sistema ITS a bordo} (GPS, cámaras y demás sensores o equipos disponibles que produzcan información útil para la operación):
+			\begin{itemize}
+				\item Metadatos estandarizados comunes (código de bus, ruta, servicio, estación/parada y marca de tiempo) para relacionar los eventos con las decisiones operativas.
+				\item Clasificación y protección adecuada de información sensible, reservada o con datos personales cuando corresponda.
+			\end{itemize}
+			\item[$\Rightarrow$] \textbf{Sistema de Despacho:}
+			\begin{itemize}
+				\item Repositorio o fuente autoritativa de posición, estado y programación de la flota, evitando duplicidades y contradicciones entre sistemas.
+				\item Integridad y trazabilidad de los datos que soportan decisiones de despacho y regulación.
+			\end{itemize}
+			\item[$\Rightarrow$] \textbf{Plataforma de analítica y tableros operativos del CCI:}
+			\begin{itemize}
+				\item Disponibilidad y actualización en tiempo casi real.
+				\item Minimización de datos personales en los indicadores.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{2. Application Architecture}
+	\begin{itemize}
+		\item \textbf{Sistemas principales:}
+		\begin{itemize}
+			\item[$\Rightarrow$] Sistema ITS a bordo (GPS, cámaras y demás sensores o equipos disponibles que produzcan información útil para la operación).
+			\item[$\Rightarrow$] Sistema de Despacho.
+			\item[$\Rightarrow$] Plataforma de analítica y tableros operativos del CCI.
+		\end{itemize}
+		\item \textbf{Integraciones:}
+		\begin{itemize}
+			\item[$\Rightarrow$] Bus de eventos en tiempo real que conecta ITS a bordo, analítica, Sistema de Despacho/Control de Flota y plataformas de alertas, permitiendo enrutar eventos operacionales hacia el componente correspondiente.
+			\item[$\Rightarrow$] APIs para el intercambio de información entre los sistemas que soportan control de flota, analítica e información al usuario. Cuando el protocolo concreto no esté documentado, la API se mantiene como mecanismo asumido de interoperabilidad del modelo.
+			\item[$\Rightarrow$] Autenticación SSO para operadores y supervisores que acceden a distintas consolas del CCI, con perfiles diferenciados, basada en Active Directory + ADFS.
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Fase D: Technology Architecture}
+
+\begin{itemize}
+	\item \textbf{Infraestructura:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Red de comunicaciones vehículo--CCI para telemetría de flota y transmisión de información en tiempo real \parencite{transmilenio2026cci}.
+		\item[$\Rightarrow$] Centro de datos e infraestructura del CCI con componentes locales de baja latencia y servicios en nube. Google Cloud Platform (GCP) se conserva por existir evidencia institucional de que se usa.
+		\item[$\Rightarrow$] Fortinet para firewalls, monitoreo y analítica de seguridad, junto con balanceadores de carga y segmentación de red para separar funciones críticas, sistemas operacionales, analítica y accesos externos \parencite{transmilenio2025res439}.
+		\item[$\Rightarrow$] Fortinet (FortiAnalyzer/FortiSIEM) para el monitoreo de accesos y eventos de seguridad, y contenedores/orquestación para los microservicios que soporten el proceso.
+	\end{itemize}
+	\item \textbf{Plataformas:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Base de datos geoespacial: Oracle Spatial/Locator como fuente transaccional y Esri ArcGIS Server/Enterprise como capa de publicación y análisis (inferencia de trabajo).
+		\item[$\Rightarrow$] Plataforma de streaming de eventos para telemetría de buses y alertas operacionales.
+		\item[$\Rightarrow$] Almacenamiento inmutable tipo WORM para registros o evidencias operacionales críticas cuando sea necesario preservar la integridad.
+	\end{itemize}
+	\item \textbf{Seguridad:}
+	\begin{itemize}
+		\item[$\Rightarrow$] \textbf{Integridad:} validación criptográfica de la señal GPS/AVL o mecanismo equivalente de autenticidad e integridad para reducir el riesgo de manipulación que altere decisiones de despacho.
+		\item[$\Rightarrow$] \textbf{Disponibilidad:} arquitectura redundante del CCI, de forma que la supervisión y regulación de la flota no dependan de un único punto de falla \parencite{transmilenio2025pesi}.
+		\item[$\Rightarrow$] \textbf{Confidencialidad:} protección de información sensible, datos personales y comunicaciones operativas de acuerdo con la normatividad y las políticas institucionales \parencite{transmilenio2025pesi,ley1581de2012}.
+		\item[$\Rightarrow$] \textbf{Control de acceso:} RBAC con perfiles diferenciados (operador de monitoreo, supervisor de despacho, soporte TIC y demás roles), complementado con MFA cuando aplique \parencite{mintic2021,transmilenio2025pesi}.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Fase E: Opportunities \& Solutions}
+
+\begin{itemize}
+	\item \textbf{Soluciones identificadas:}
+	\begin{enumerate}
+		\item Fortalecer la consola unificada del CCI para presentar en un mismo tablero el estado de la flota, novedades operacionales, alertas y acciones de regulación.
+		\item Consolidar la integración por API o bus de eventos en tiempo real entre ITS, FMS/SIRCI, analíticas, alertas y la información del usuario.
+		\item Fortalecer la analítica operacional y, cuando aplique, las capacidades de IA para detectar patrones de congestión, bunching o comportamiento fuera de lo normal que afecte el servicio.
+		\item Implementar un plan de contingencia y redundancia del CCI enfocado en la continuidad del control y la regulación de la flota.
+		\item Formalizar la trazabilidad de decisiones operativas, relacionando dato o evento, responsable, instrucción ejecutada y resultado.
+	\end{enumerate}
+	\item \textbf{Quick wins:}
+	\begin{enumerate}
+		\item Verificar y activar autenticación multifactor (MFA) en las consolas y cuentas del CCI que lo permitan \parencite{mintic2021,transmilenio2025pesi}.
+		\item Habilitar o reforzar el registro automático de decisiones de despacho y regulación.
+		\item Inventariar interfaces, fuentes de datos, roles y permisos de los sistemas que participan en el proceso \parencite{mintic2021}.
+		\item Definir fuentes autoritativas y metadatos comunes para la información crítica de flota.
+	\end{enumerate}
+\end{itemize}
+
+\subsubsection*{Fase F: Migration Planning}
+
+\begin{itemize}
+	\item \textbf{Prioridades:}
+	\begin{enumerate}
+		\item A corto plazo: fuentes autoritativas de datos de flota, control de acceso por roles y trazabilidad básica de decisiones.
+		\item A mediano plazo: consolidación de la integración por API o bus de eventos, analítica operacional y tablero unificado del proceso.
+		\item A largo plazo: redundancia y contingencia integral del control de flota, y auditoría transversal de decisiones operativas.
+	\end{enumerate}
+	\item \textbf{Plan propuesto:}
+	\begin{itemize}
+		\item[$\Rightarrow$] \textbf{Fase 1:} fuentes autoritativas de datos, control de acceso por roles, inventario de interfaces y registro de decisiones.
+		\item[$\Rightarrow$] \textbf{Fase 2:} consolidación del tablero unificado, analítica operacional y estandarización del canal API o bus de eventos.
+		\item[$\Rightarrow$] \textbf{Fase 3:} redundancia y contingencia integral del CCI para el proceso, y auditoría completa de decisiones de regulación.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Fase G: Implementation Governance}
+
+\begin{itemize}
+	\item \textbf{Controles:}
+	\begin{itemize}
+		\item[$\Rightarrow$] El Comité de Arquitectura (con representación de Operaciones, Seguridad y TI) revisa cada entrega antes de pasar a producción, para ambos procesos de forma conjunta.
+		\item[$\Rightarrow$] Validación de seguridad: pruebas de penetración a las consolas de despacho y de incidentes, y pruebas de cadena de custodia con casos simulados.
+		\item[$\Rightarrow$] Pruebas de usuario con operadores reales del CCI, cubriendo escenarios de despacho, de incidentes y del punto de integración entre ambos.
+		\item[$\Rightarrow$] Cumplimiento de estándares TOGAF, políticas internas de TransMilenio y normatividad de protección de datos aplicable.
+		\item[$\Rightarrow$] Registro de aceptación de cada cambio, responsable, pruebas realizadas y resultado.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Fase H: Architecture Change Management}
+
+\begin{itemize}
+	\item \textbf{Mecanismo:}
+	\begin{itemize}
+		\item[$\Rightarrow$] Revisión semestral de la arquitectura del área completa, dado que ambos procesos son críticos para la operación diaria del sistema.
+		\item[$\Rightarrow$] Los cambios operativos y técnicos identificados en la revisión (modificaciones al ITS a bordo, al motor de IA de video-analítica o a los protocolos de coordinación externa) se gestionan mediante un proceso tipo ITIL Change Management.
+		\item[$\Rightarrow$] Un informe de estado de arquitectura presentado a la Gerencia General, que incluya: avance frente a la visión, cambios internos relevantes, cambios externos relevantes y recomendaciones.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Resultado esperado}
+
+El proceso de gestión y despacho de flota desde el CCI queda soportado por datos consistentes, sistemas interoperables por diseño y una arquitectura (tanto tecnológica como de seguridad) transversal. El modelo busca que TransMilenio pueda supervisar, regular y comunicar la operación en tiempo real, con mayor trazabilidad, continuidad y capacidad de respuesta, manteniendo la gestión de incidentes y emergencias como un proceso externo que puede generar eventos con impacto operacional.
+
+\end{singlespace}
