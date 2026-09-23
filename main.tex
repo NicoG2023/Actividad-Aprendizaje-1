@@ -7,6 +7,7 @@
 %     seleccion-caso.tex
 %     casos-v2.tex            Casos de negocio v2 (Punto 2 del Anexo 1)
 %     riesgos.tex
+%     riesgosParte2.tex
 %     impacto-riesgos.tex
 %     conclusiones.tex
 %     casos/                 Casos de negocio de los integrantes:
@@ -35,6 +36,14 @@
 \addbibresource{referencias.bib}
 \hypersetup{hidelinks}
 \usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+% Colores de los niveles de riesgo de la matriz de calor (Guía Función Pública, v7)
+\definecolor{riesgoVerde}{HTML}{92D050}
+\definecolor{riesgoAmarillo}{HTML}{FFFF00}
+\definecolor{riesgoNaranja}{HTML}{E26B0A}
+\definecolor{riesgoRojo}{HTML}{C00000}
 
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
@@ -86,10 +95,13 @@
 % 4. Riesgos
 \input{secciones/riesgos}
 
-% 5. Impacto de los riesgos
+% 5. Valoración del riesgo inherente (parte 2) e impacto en objetivos
+\input{secciones/riesgosParte2}
+
+% 6. Impacto de los riesgos
 \input{secciones/impacto-riesgos}
 
-% 6. Conclusiones
+% 7. Conclusiones
 \input{secciones/conclusiones}
 % La lista de referencias se genera automáticamente con las entradas
 % que se citen en el texto (\parencite / \textcite) desde referencias.bib.

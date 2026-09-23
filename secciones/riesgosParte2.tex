@@ -1,0 +1,254 @@
+
+Para completar la valoración de los riesgos, a continuación se analiza la probabilidad inherente y se ubica cada riesgo en la matriz de calor de la guía, tomando como referencia los tres activos de criticidad alta del proceso, los datos GPS que soportan la telemetría de flota, la bitácora de decisiones del CCI y el sistema de despacho. Los riesgos analizados son R1 (datos GPS), R3 y R6 (sistema de despacho) y R4 (bitácora de decisiones).
+
+\subsection{Análisis de la probabilidad inherente}
+
+De acuerdo con la guía, la probabilidad corresponde al número de veces que se pasa por el punto de riesgo en el periodo de un año, por lo que se asocia a la exposición de la actividad y no a los eventos ocurridos en el pasado; en materia de tecnología, una hora de funcionamiento equivale a una ocurrencia. El CCI opera de forma continua, coordina la operación de los componentes Troncal, TransMiZonal y TransMiCable las 24 horas del día y controla la \enquote{regulación de la flota que se encuentra en vía en todo momento} \parencite{transmilenio2020peti}. Además, procesa más de 40 millones de registros de datos al día \parencite{transmilenio2026cci}. Por lo anterior, las actividades asociadas a los tres activos superan las 5.000 ocurrencias al año y se ubican en el nivel Muy Alta (100 \%), según los criterios de probabilidad de la guía.
+
+\begin{table}[H]
+    \centering
+    \caption{Análisis de probabilidad inherente de los riesgos de los activos priorizados}
+    \label{tab:probabilidad-inherente}
+    \small
+    \renewcommand{\arraystretch}{1.25}
+    \setlength{\tabcolsep}{3pt}
+
+    \begin{tabularx}{\textwidth}{
+            @{}
+            >{\centering\arraybackslash}p{0.8cm}
+            >{\raggedright\arraybackslash}p{3cm}
+            >{\raggedright\arraybackslash}X
+            >{\raggedright\arraybackslash}p{3.3cm}
+            >{\centering\arraybackslash}p{2.4cm}
+            @{}
+        }
+        \toprule
+        \textbf{ID}                                                              &
+        \textbf{Activo}                                                          &
+        \textbf{Actividad que expone al riesgo}                                  &
+        \textbf{Frecuencia estimada}                                             &
+        \makecell{\textbf{Probabilidad}\\\textbf{inherente}}                       \\
+        \midrule
+
+        R1                                                                       &
+        Telemetría de flota (GPS/AVL)                                            &
+        Captura y transmisión de datos de posición y ocupación                   &
+        Más de 40 millones de registros al día (8.760 h de operación al año)     &
+        \makecell{Muy Alta\\(100 \%)}                                              \\
+
+        \midrule
+
+        R3                                                                       &
+        Sistema de despacho                                                      &
+        Acceso y uso del sistema por operadores y supervisores desde 209 puestos &
+        Durante toda la operación (más de 5.000 veces al año)                    &
+        \makecell{Muy Alta\\(100 \%)}                                              \\
+
+        \midrule
+
+        R4                                                                       &
+        Bitácora de decisiones                                                   &
+        Registro de las decisiones de despacho y regulación                      &
+        Durante toda la operación (más de 5.000 veces al año)                    &
+        \makecell{Muy Alta\\(100 \%)}                                              \\
+
+        \midrule
+
+        R6                                                                       &
+        Sistema de despacho                                                      &
+        Programación, regulación y despacho de la flota en vía                   &
+        Durante toda la operación (8.760 h al año)                               &
+        \makecell{Muy Alta\\(100 \%)}                                              \\
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
+\begin{flushleft}
+    \footnotesize
+    \textit{Fuente: elaboración propia con base en \cite{funcionpublica2025,transmilenio2026cci,transmilenio2020peti}.}
+\end{flushleft}
+
+En los tres activos la exposición es permanente, así que la probabilidad inherente resulta Muy Alta en todos los casos. La diferenciación entre los riesgos se produce entonces por el impacto y, más adelante, por la efectividad de los controles \parencite{funcionpublica2025}.
+
+\subsection{Matriz de calor del riesgo inherente}
+
+La severidad se obtiene al combinar la probabilidad y el impacto, y ubica cada riesgo en uno de los cuatro niveles de riesgo de la matriz de calor: bajo, moderado, alto y extremo \parencite{funcionpublica2025}. La severidad se calculó multiplicando los porcentajes de probabilidad e impacto; por ejemplo, la guía ubica una probabilidad moderada (60 \%) con un impacto catastrófico (100 \%) en el nivel extremo \parencite{funcionpublica2025}. En la matriz se registran los riesgos de los tres activos priorizados según los valores de probabilidad e impacto obtenidos en los apartados anteriores.
+
+\begin{table}[H]
+    \centering
+    \caption{Matriz de calor del riesgo inherente}
+    \label{tab:matriz-calor-inherente}
+    \footnotesize
+    \setlength{\tabcolsep}{2.5pt}
+    \renewcommand{\arraystretch}{1.4}
+
+    \begin{tabular}{@{}>{\centering\arraybackslash}p{1.85cm}*{5}{>{\centering\arraybackslash}p{2.6cm}}@{}}
+        \toprule
+        \multicolumn{1}{@{}c}{\makecell{\textbf{Probabilidad}\\\textbf{$\downarrow$}}} &
+        \multicolumn{5}{c}{\textbf{Impacto} $\rightarrow$}                               \\
+        \cmidrule(l){2-6}
+                                                                                       &
+        \makecell{\textbf{Leve}\\20 \,\%}                                              &
+        \makecell{\textbf{Menor}\\40 \,\%}                                             &
+        \makecell{\textbf{Moderado}\\60 \,\%}                                          &
+        \makecell{\textbf{Mayor}\\80 \,\%}                                             &
+        \makecell{\textbf{Catastrófico}\\100 \,\%}                                       \\
+        \midrule
+
+        \makecell{\textbf{Muy Alta}\\100 \,\%}                                         &
+        \cellcolor{riesgoNaranja}20                                                    &
+        \cellcolor{riesgoNaranja}40                                                    &
+        \cellcolor{riesgoNaranja}\makecell{60\\R4}                                     &
+        \cellcolor{riesgoNaranja}\makecell{80\\R1, R3, R6}                             &
+        \cellcolor{riesgoRojo}\textcolor{white}{100}                                     \\
+
+        \makecell{\textbf{Alta}\\80 \,\%}                                              &
+        \cellcolor{riesgoAmarillo}16                                                   &
+        \cellcolor{riesgoAmarillo}32                                                   &
+        \cellcolor{riesgoNaranja}48                                                    &
+        \cellcolor{riesgoNaranja}64                                                    &
+        \cellcolor{riesgoRojo}\textcolor{white}{80}                                      \\
+
+        \makecell{\textbf{Media}\\60 \,\%}                                             &
+        \cellcolor{riesgoAmarillo}12                                                   &
+        \cellcolor{riesgoAmarillo}24                                                   &
+        \cellcolor{riesgoAmarillo}36                                                   &
+        \cellcolor{riesgoNaranja}48                                                    &
+        \cellcolor{riesgoRojo}\textcolor{white}{60}                                      \\
+
+        \makecell{\textbf{Baja}\\40 \,\%}                                              &
+        \cellcolor{riesgoVerde}8                                                       &
+        \cellcolor{riesgoAmarillo}16                                                   &
+        \cellcolor{riesgoAmarillo}24                                                   &
+        \cellcolor{riesgoNaranja}32                                                    &
+        \cellcolor{riesgoRojo}\textcolor{white}{40}                                      \\
+
+        \makecell{\textbf{Muy Baja}\\20 \,\%}                                          &
+        \cellcolor{riesgoVerde}4                                                       &
+        \cellcolor{riesgoVerde}8                                                       &
+        \cellcolor{riesgoAmarillo}12                                                   &
+        \cellcolor{riesgoNaranja}20                                                    &
+        \cellcolor{riesgoRojo}\textcolor{white}{20}                                      \\
+
+        \bottomrule
+    \end{tabular}
+
+    \vspace{0.4cm}
+
+    \begin{tabular}{@{}l l@{}}
+        \cellcolor{riesgoVerde}\hspace{0.8em}    & Bajo     \\
+        \cellcolor{riesgoAmarillo}\hspace{0.8em} & Moderado \\
+        \cellcolor{riesgoNaranja}\hspace{0.8em}  & Alto     \\
+        \cellcolor{riesgoRojo}\hspace{0.8em}     & Extremo  \\
+    \end{tabular}
+\end{table}
+\begin{flushleft}
+    \footnotesize
+    \textit{Fuente: elaboración propia con base en \cite{funcionpublica2025}. Cada celda muestra la severidad (probabilidad $\times$ impacto) y los riesgos ubicados en ella.}
+\end{flushleft}
+
+\begin{table}[H]
+    \centering
+    \caption{Valoración del riesgo inherente de los activos priorizados}
+    \label{tab:valoracion-inherente}
+    \small
+    \renewcommand{\arraystretch}{1.25}
+
+    \begin{tabularx}{\textwidth}{
+            @{}
+            >{\centering\arraybackslash}p{0.8cm}
+            >{\raggedright\arraybackslash}p{3.6cm}
+            >{\centering\arraybackslash}p{2.5cm}
+            >{\centering\arraybackslash}p{2.5cm}
+            >{\centering\arraybackslash}p{2.2cm}
+            >{\raggedright\arraybackslash}X
+            @{}
+        }
+        \toprule
+        \textbf{ID}              &
+        \textbf{Tipo de pérdida} &
+        \textbf{Probabilidad}    &
+        \textbf{Impacto}         &
+        \textbf{Severidad}       &
+        \textbf{Nivel de riesgo inherente}                                                                \\
+        \midrule
+
+        R1                       & Integridad     & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
+
+        \midrule
+
+        R3                       & Integridad     & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
+
+        \midrule
+
+        R4                       & Integridad     & Muy Alta (100 \%) & Moderado (60 \%) & 60 \,\% & Alto \\
+
+        \midrule
+
+        R6                       & Disponibilidad & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
+\begin{flushleft}
+    \footnotesize
+    \textit{Fuente: elaboración propia con base en \cite{funcionpublica2025} y los niveles de impacto de la Tabla \ref{tab:evaluacion-impacto}.}
+\end{flushleft}
+
+Los cuatro riesgos evaluados se encuentran en el nivel alto (severidad del 60 \% y 80 \%) antes de aplicar controles. Esto es consistente con el enfoque de la guía, el riesgo inherente se mide sobre la exposición de la actividad y no sobre la efectividad de los controles existentes. La consecuencia para el proceso es clara: un dato, un sistema o un registro comprometido puede afectar directamente la regulación de la flota y el cumplimiento de los objetivos estratégicos. Por eso, el siguiente paso metodológico es el diseño y análisis de controles, orientado a reducir la probabilidad o el impacto y a trasladar los riesgos hacia niveles bajos o moderados \parencite{funcionpublica2025}.
+
+\section{Impacto de los riesgos en los objetivos estratégicos}
+
+El éxito operacional del Centro de Control Integrado (CCI) radica en garantizar una movilidad urbana sostenible, segura y de calidad, modernizar la operación del transporte masivo como centro único de control y reducir los tiempos de espera mediante la regulación de flota en tiempo real. No obstante, la materialización de riesgos sobre activos críticos de información genera consecuencias negativas directas que comprometen la capacidad institucional de supervisión y control de la flota. A continuación, se evalúa cómo cada uno de los riesgos identificados incide de manera específica en el cumplimiento de estos objetivos estratégicos
+
+\begin{table}[H]
+    \centering
+    \caption{Impacto de los riesgos en los objetivos estratégicos}
+    \label{tab:impacto-objetivos}
+    \small
+    \renewcommand{\arraystretch}{1.25}
+
+    \begin{tabularx}{\textwidth}{
+            @{}
+            >{\centering\arraybackslash}p{0.8cm}
+            >{\raggedright\arraybackslash}p{7.3cm}
+            >{\raggedright\arraybackslash}X
+            @{}
+        }
+        \toprule
+        \textbf{ID}                                                                                                                                                                                                                    &
+        \textbf{Objetivo estratégico afectado}                                                                                                                                                                                         &
+        \textbf{Efecto de la materialización del riesgo}                                                                                                                                                                                 \\
+        \midrule
+
+        R1                                                                                                                                                                                                                             &
+        Integrar y modernizar la operación del sistema mediante tecnología, consolidando el CCI como centro único de control; reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real &
+        Los datos de posición alterados rompen la confiabilidad de la información con la que el CCI regula la flota y llevan a decisiones de despacho incorrectas.                                                                       \\
+
+        \midrule
+
+        R3                                                                                                                                                                                                                             &
+        Integrar y modernizar la operación del sistema mediante tecnología; garantizar una movilidad urbana sostenible, segura y de calidad                                                                                            &
+        Las órdenes no autorizadas comprometen la operación y la credibilidad del modelo de gobierno de seguridad del CCI.                                                                                                               \\
+
+        \midrule
+
+        R4                                                                                                                                                                                                                             &
+        Trazabilidad, continuidad y seguridad de la información utilizada para regular la operación (business case del análisis TOGAF); PETI: \enquote{Reflejar correctamente las actuaciones de la institución y de sus terceros}     &
+        Sin registros íntegros no hay evidencia de las decisiones ni responsables verificables.                                                                                                                                          \\
+
+        \midrule
+
+        R6                                                                                                                                                                                                                             &
+        Reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real; garantizar una movilidad urbana sostenible, segura y de calidad                                                      &
+        Sin sistema de despacho no se pueden ejecutar cambios de rutas, frecuencias u órdenes cuando la operación lo requiere.                                                                                                           \\
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
+\begin{flushleft}
+    \footnotesize
+    \textit{Fuente: elaboración propia con base en \cite{transmilenio2026cci,alcaldia2026cci,transmilenio2020peti,transmilenio2025pesi}.}
+\end{flushleft}
+
+Los cuatro riesgos evaluados se ubican en el nivel alto de riesgo inherente (Tabla \ref{tab:valoracion-inherente}) y su materialización compromete directamente la capacidad del CCI para supervisar y regular la flota y, con ella, el cumplimiento de los objetivos estratégicos del caso: la movilidad urbana segura y de calidad, la operación integrada mediante tecnología y la reducción de los tiempos de espera. Esto refuerza la necesidad del siguiente paso metodológico: el diseño y análisis de controles \parencite{funcionpublica2025}.
