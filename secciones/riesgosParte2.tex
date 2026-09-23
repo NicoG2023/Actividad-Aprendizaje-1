@@ -1,5 +1,5 @@
 
-Para completar la valoración de los riesgos, a continuación se analiza la probabilidad inherente y se ubica cada riesgo en la matriz de calor de la guía, tomando como referencia los tres activos de criticidad alta del proceso, los datos GPS que soportan la telemetría de flota, la bitácora de decisiones del CCI y el sistema de despacho. Los riesgos analizados son R1 (datos GPS), R3 y R6 (sistema de despacho) y R4 (bitácora de decisiones).
+Para completar la valoración de los riesgos, a continuación se analiza la probabilidad inherente y se ubica cada riesgo en la matriz de calor de la guía, tomando como referencia los tres activos de criticidad alta del proceso: la telemetría de flota, la bitácora de decisiones del CCI y el sistema de despacho. El inventario y la valoración de estos activos se pueden consultar en el Anexo~\ref{anexo:inventario-activos}, y el detalle de la valoración inherente, los controles y el riesgo residual en el Anexo~\ref{anexo:matriz-riesgos}. Los riesgos analizados son R1 (telemetría de flota), R2 (bitácora de decisiones del CCI), R3 y R4 (sistema de despacho).
 
 \subsection{Análisis de la probabilidad inherente}
 
@@ -31,15 +31,23 @@ De acuerdo con la guía, la probabilidad corresponde al número de veces que se 
         \midrule
 
         R1                                                                       &
-        Telemetría de flota (GPS/AVL)                                            &
+        Telemetría de flota                                                      &
         Captura y transmisión de datos de posición y ocupación                   &
         Más de 40 millones de registros al día (8.760 h de operación al año)     &
         \makecell{Muy Alta\\(100 \%)}                                              \\
 
         \midrule
 
+        R2                                                                       &
+        Bitácora de decisiones del CCI                                           &
+        Registro de las decisiones de despacho y regulación                      &
+        Durante toda la operación (más de 5.000 veces al año)                    &
+        \makecell{Muy Alta\\(100 \%)}                                              \\
+
+        \midrule
+
         R3                                                                       &
-        Sistema de despacho                                                      &
+        Sistema de Despacho                                                      &
         Acceso y uso del sistema por operadores y supervisores desde 209 puestos &
         Durante toda la operación (más de 5.000 veces al año)                    &
         \makecell{Muy Alta\\(100 \%)}                                              \\
@@ -47,15 +55,7 @@ De acuerdo con la guía, la probabilidad corresponde al número de veces que se 
         \midrule
 
         R4                                                                       &
-        Bitácora de decisiones                                                   &
-        Registro de las decisiones de despacho y regulación                      &
-        Durante toda la operación (más de 5.000 veces al año)                    &
-        \makecell{Muy Alta\\(100 \%)}                                              \\
-
-        \midrule
-
-        R6                                                                       &
-        Sistema de despacho                                                      &
+        Sistema de Despacho                                                      &
         Programación, regulación y despacho de la flota en vía                   &
         Durante toda la operación (8.760 h al año)                               &
         \makecell{Muy Alta\\(100 \%)}                                              \\
@@ -98,8 +98,8 @@ La severidad se obtiene al combinar la probabilidad y el impacto, y ubica cada r
         \makecell{\textbf{Muy Alta}\\100 \,\%}                                         &
         \cellcolor{riesgoNaranja}20                                                    &
         \cellcolor{riesgoNaranja}40                                                    &
-        \cellcolor{riesgoNaranja}\makecell{60\\R4}                                     &
-        \cellcolor{riesgoNaranja}\makecell{80\\R1, R3, R6}                             &
+        \cellcolor{riesgoNaranja}\makecell{60\\R2}                                     &
+        \cellcolor{riesgoNaranja}\makecell{80\\R1, R3, R4}                             &
         \cellcolor{riesgoRojo}\textcolor{white}{100}                                     \\
 
         \makecell{\textbf{Alta}\\80 \,\%}                                              &
@@ -177,15 +177,15 @@ La severidad se obtiene al combinar la probabilidad y el impacto, y ubica cada r
 
         \midrule
 
+        R2                       & Integridad     & Muy Alta (100 \%) & Moderado (60 \%) & 60 \,\% & Alto \\
+
+        \midrule
+
         R3                       & Integridad     & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
 
         \midrule
 
-        R4                       & Integridad     & Muy Alta (100 \%) & Moderado (60 \%) & 60 \,\% & Alto \\
-
-        \midrule
-
-        R6                       & Disponibilidad & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
+        R4                       & Disponibilidad & Muy Alta (100 \%) & Mayor (80 \%)    & 80 \,\% & Alto \\
 
         \bottomrule
     \end{tabularx}
@@ -195,7 +195,7 @@ La severidad se obtiene al combinar la probabilidad y el impacto, y ubica cada r
     \textit{Fuente: elaboración propia con base en \cite{funcionpublica2025} y los niveles de impacto de la Tabla \ref{tab:evaluacion-impacto}.}
 \end{flushleft}
 
-Los cuatro riesgos evaluados se encuentran en el nivel alto (severidad del 60 \% y 80 \%) antes de aplicar controles. Esto es consistente con el enfoque de la guía, el riesgo inherente se mide sobre la exposición de la actividad y no sobre la efectividad de los controles existentes. La consecuencia para el proceso es clara: un dato, un sistema o un registro comprometido puede afectar directamente la regulación de la flota y el cumplimiento de los objetivos estratégicos. Por eso, el siguiente paso metodológico es el diseño y análisis de controles, orientado a reducir la probabilidad o el impacto y a trasladar los riesgos hacia niveles bajos o moderados \parencite{funcionpublica2025}.
+Los cuatro riesgos evaluados se encuentran en el nivel alto (severidad del 60 \% y 80 \%) antes de aplicar controles. Esto es consistente con el enfoque de la guía, el riesgo inherente se mide sobre la exposición de la actividad y no sobre la efectividad de los controles existentes. La consecuencia para el proceso es clara: un dato, un sistema o un registro comprometido puede afectar directamente la regulación de la flota y el cumplimiento de los objetivos estratégicos. Por eso, el siguiente paso metodológico es el diseño y análisis de controles, orientado a reducir la probabilidad o el impacto y a trasladar los riesgos hacia niveles bajos o moderados \parencite{funcionpublica2025}. El detalle de los controles y del riesgo residual se presenta en el Anexo~\ref{anexo:matriz-riesgos}.
 
 \section{Impacto de los riesgos en los objetivos estratégicos}
 
@@ -221,27 +221,27 @@ El éxito operacional del Centro de Control Integrado (CCI) radica en garantizar
         \textbf{Efecto de la materialización del riesgo}                                                                                                                                                                                 \\
         \midrule
 
-        R1                                                                                                                                                                                                                             &
+        R1 &
         Integrar y modernizar la operación del sistema mediante tecnología, consolidando el CCI como centro único de control; reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real &
-        Los datos de posición alterados rompen la confiabilidad de la información con la que el CCI regula la flota y llevan a decisiones de despacho incorrectas.                                                                       \\
+        Los datos de posición alterados rompen la confiabilidad de la información con la que el CCI regula la flota y llevan a decisiones de despacho incorrectas. \\
 
         \midrule
 
-        R3                                                                                                                                                                                                                             &
-        Integrar y modernizar la operación del sistema mediante tecnología; garantizar una movilidad urbana sostenible, segura y de calidad                                                                                            &
-        Las órdenes no autorizadas comprometen la operación y la credibilidad del modelo de gobierno de seguridad del CCI.                                                                                                               \\
+        R2 &
+        Trazabilidad, continuidad y seguridad de la información utilizada para regular la operación (business case del análisis TOGAF); PETI: \enquote{Reflejar correctamente las actuaciones de la institución y de sus terceros} &
+        Sin registros íntegros no hay evidencia de las decisiones ni responsables verificables. \\
 
         \midrule
 
-        R4                                                                                                                                                                                                                             &
-        Trazabilidad, continuidad y seguridad de la información utilizada para regular la operación (business case del análisis TOGAF); PETI: \enquote{Reflejar correctamente las actuaciones de la institución y de sus terceros}     &
-        Sin registros íntegros no hay evidencia de las decisiones ni responsables verificables.                                                                                                                                          \\
+        R3 &
+        Integrar y modernizar la operación del sistema mediante tecnología; garantizar una movilidad urbana sostenible, segura y de calidad &
+        Las órdenes no autorizadas comprometen la operación y la credibilidad del modelo de gobierno de seguridad del CCI. \\
 
         \midrule
 
-        R6                                                                                                                                                                                                                             &
-        Reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real; garantizar una movilidad urbana sostenible, segura y de calidad                                                      &
-        Sin sistema de despacho no se pueden ejecutar cambios de rutas, frecuencias u órdenes cuando la operación lo requiere.                                                                                                           \\
+        R4 &
+        Reducir los tiempos de espera y la variabilidad del servicio mediante regulación de flota en tiempo real; garantizar una movilidad urbana sostenible, segura y de calidad &
+        Sin sistema de despacho no se pueden ejecutar cambios de rutas, frecuencias u órdenes cuando la operación lo requiere. \\
 
         \bottomrule
     \end{tabularx}
